@@ -1,0 +1,15 @@
+.DS_Store
+.cursor/*.log
+lighthouse-reports/
+*.report.html
+__pycache__/
+.venv/
+node_modules/
+
+# Artefacts design (pas la prod)
+Landing AutomateX-HUB.dc.html
+support.js
+
+# Sources images lourdes non servies
+uploads/photos-*.png
+uploads/automatex-os-dashboard-full.png

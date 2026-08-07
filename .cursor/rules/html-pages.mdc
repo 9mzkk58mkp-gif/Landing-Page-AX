@@ -1,0 +1,24 @@
+---
+description: Conventions HTML pages AutomateX-HUB (landing, métiers, articles)
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# HTML pages
+
+## Structure type
+- `<head>` : meta SEO, canonical `.com`, OG, `styles.min.css`, boot fonts différé, JSON-LD en fin de body avant `script.js`
+- CTA : classe `js-calendly` + libellé « Démo gratuite 20 min sur ton cas »
+- Sous CTA : `.cta-reassure` (sans engagement · 1 mail · 30 j)
+- Footer : NAP + liens métiers/articles/légal + `Cookies` injecté par JS
+
+## Chemins relatifs
+- Racine : `styles.min.css`, `script.js?v=N`
+- `/metier/` : `../styles.min.css`, `../script.js?v=N`
+- `/articles/slug/` : `../../styles.min.css`, `../../script.js?v=N`
+
+## Quand tu ajoutes une page
+1. Copier une page métier ou article existante (ne pas partir de zéro).
+2. Mettre à jour `sitemap.xml`.
+3. Ajouter le lien footer / maillage pertinent.
+4. Bumper `?v=` sur `script.js` si JS change.

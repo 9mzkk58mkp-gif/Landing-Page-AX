@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 620" role="img" aria-label="AutomateX-HUB">
+  <title>AutomateX-HUB</title>
+  <rect width="620" height="620" fill="#000000"/>
+  <!-- Concentric mark from source: rings ~14px / 28px inset -->
+  <circle cx="310" cy="310" r="296" fill="none" stroke="#1c2428" stroke-width="2.25"/>
+  <circle cx="310" cy="310" r="282" fill="none" stroke="#1c2428" stroke-width="1.75"/>
+  <text
+    x="310"
+    y="318"
+    text-anchor="middle"
+    fill="#1c2428"
+    font-family="Helvetica Neue, Helvetica, Arial Black, Arial, sans-serif"
+    font-weight="800"
+    font-size="208"
+    letter-spacing="-8"
+  >AX</text>
+</svg>

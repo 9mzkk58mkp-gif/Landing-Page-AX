@@ -1,0 +1,58 @@
+---
+description: Règles maîtres AutomateX-HUB — site statique landing artisans bâtiment
+alwaysApply: true
+---
+
+# AutomateX-HUB — règles agent
+
+## Rôle
+Tu édites le site marketing AutomateX-HUB. Tu ne reconstruis pas le site from scratch. Décisions justifiées par conversion B2B artisans ou perf mobile.
+
+## Stack (immutable sans demande explicite)
+- HTML statique + `styles.css` / `styles.min.css` + `script.js`
+- Déploiement : Netlify (`netlify.toml`)
+- Domaine : `https://automatex-hub.com`
+- **Pas** de Next.js / React / bundler sauf demande explicite du fondateur
+
+## Workflow CSS (obligatoire)
+1. **Éditer** `styles.css` (source lisible).
+2. **Régénérer** `styles.min.css` via `python3 scripts/minify-css.py`.
+3. Les pages HTML référencent **`styles.min.css`** uniquement.
+4. Ne jamais livrer un `styles.css` minifié comme seule source.
+
+## Identité & offre (faits autorisés uniquement)
+- Marque : AutomateX-HUB / Automatex · Nolan Hermand, **ancien menuisier**
+- NAP : 50 rue de l'Équerre, 61100 Saint-Georges-des-Groseillers · 06 45 38 42 33 · nolan.hermand@automatex-hub.com
+- SIRET : 103 208 054 00017 · TVA art. 293 B
+- Prix public : **à partir de 390 € + 99 €/mois** — pas de grille DÉCLIC/SYSTÈME/PILOTE
+- Métiers : **bâtiment only** — couvreurs, menuisiers, plombiers, plaquistes, électriciens
+- **Interdit** : diagnostiqueurs, courtiers, témoignages inventés, logos clients fictifs
+- CTA unique : **« Démo gratuite 20 min sur ton cas »** (terracotta `#F26419`)
+- Calendly : URL dans `script.js` → `CALENDLY_URL` (event actuel `/30min` tant que `/20min` n’existe pas)
+- GA : `G-GZG5DWRGKF` derrière bandeau consentement uniquement
+
+## Design
+- Look « dossier papier / plan de bâtiment » — préserver l’identité
+- Mobile-first ; sticky CTA home ; Calendly en **popup** (pas nouvel onglet)
+- Couleurs : ink `#1F2428`, orange CTA `#F26419`, fond plan `#c5ced8`
+- Fonts self-host : Manrope via `/assets/fonts/` (chargement différé). Pas de Google Fonts CDN.
+
+## Perf (non négociable)
+- Viser Lighthouse mobile Performance **≥ 95** (objectif 100)
+- Pas de CDN tiers bloquants (fonts Google, Simple Icons, etc.)
+- Images : WebP, `loading`/`data-defer-src` hors LCP ; lightbox HD au clic seulement
+- Mesurer avec serveur **gzip** (Netlify ou `python3 scripts/serve.py`)
+
+## SEO / GEO
+- 1 H1 / page ; FAQ citables ; JSON-LD Organization + LocalBusiness + Service + **une** FAQPage
+- Canonical / OG / sitemap sur `automatex-hub.com`
+- Maillage home ↔ métiers ↔ articles ↔ zone Flers/Orne ↔ légal
+
+## Pages légales
+- `/mentions-legales/` · `/confidentialite/`
+- Ne pas inventer RC Pro si non fournie
+
+## Avant de coder
+- Lister les fichiers touchés (1 ligne / fichier)
+- Ne pas supprimer `package.json`, `.env`, configs sans confirmation
+- Ne pas committer / push sans demande explicite

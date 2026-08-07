@@ -1,0 +1,22 @@
+---
+description: Perf mobile et assets — contraintes Lighthouse AutomateX-HUB
+globs: "**/*.{css,js,html}"
+alwaysApply: false
+---
+
+# Perf mobile
+
+## Objectif
+Lighthouse mobile Performance ≥ 95 (cible 100). Mesurer via `python3 scripts/serve.py` (gzip).
+
+## À faire
+- Fonts : uniquement `/assets/fonts/` (Manrope), chargement après `load`
+- Images hero : `data-defer-src` / lazy ; lightbox = WebP au clic
+- Pas de Google Fonts, pas d’icônes CDN
+- Après edit CSS : `python3 scripts/minify-css.py`
+
+## À ne pas faire
+- Remettre `opacity: 0` massif sur `.reveal` (CLS / LCP)
+- Précharger toutes les graisses de fonts
+- Servir le PNG HD `automatex-os-dashboard-full.png` au chargement initial
+- Ajouter des scripts analytics hors bandeau consentement
