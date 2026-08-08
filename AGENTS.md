@@ -23,6 +23,7 @@ Site marketing statique pour **AutomateX-HUB** : automatisation devis / relances
 |--------|------|
 | `index.html` | Landing conversion (sticky CTA, lightbox OS) |
 | `couvreurs/` `menuisiers/` `plombiers/` `plaquistes/` `electriciens/` | Pages métier SEO/GEO |
+| `outils/` | Mur 30 nœuds n8n + logos SVG animés |
 | `automatisation-artisans-flers-orne/` | Page zone |
 | `articles/` | Hub + articles intention |
 | `mentions-legales/` `confidentialite/` | Légal / RGPD |

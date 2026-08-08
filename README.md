@@ -1,6 +1,6 @@
 # AutomateX-HUB — Landing
 
-Site marketing statique (HTML/CSS/JS) pour artisans du bâtiment — Flers / Orne.  
+Site marketing statique (HTML/CSS/JS) pour artisans du bâtiment — Flers / Orne. 
 Déploiement prévu : **Netlify** → `https://automatex-hub.com`.
 
 ## Pour les humains
