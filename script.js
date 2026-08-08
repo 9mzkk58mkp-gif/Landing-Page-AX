@@ -1,6 +1,6 @@
 // AutomateX-HUB — landing page
 // Agents : lire AGENTS.md + .cursor/rules/ avant modification.
-// Durée promise : 20 min. Event Calendly actuel : /30min (créer un event /20min puis mettre à jour l’URL).
+// Durée promise : 20 min. Event Calendly : /30min tant que /20min n’existe pas (404 au 2026-08-07). Créer /20min puis changer CALENDLY_URL.
 const CALENDLY_URL = 'https://calendly.com/nolan-hermand-automatex-hub/30min';
 const CALENDLY_CSS = 'https://assets.calendly.com/assets/external/widget.css';
 const CALENDLY_JS = 'https://assets.calendly.com/assets/external/widget.js';
@@ -87,6 +87,76 @@ const show = (el) => {
 document.querySelectorAll('.section--hero .reveal, .section--hero .anim-run').forEach(show);
 
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Navbar pilule : entrée puis flottement + pastille active
+(function navPillMotion() {
+  const nav = document.querySelector('.nav-pill');
+  if (!nav) return;
+
+  const links = Array.from(nav.querySelectorAll('.nav-pill__link'));
+  const thumb = nav.querySelector('.nav-pill__thumb');
+  const fondateur = document.getElementById('fondateur');
+
+  const placeThumb = (link) => {
+    if (!thumb || !link) return;
+    const navBox = nav.getBoundingClientRect();
+    const linkBox = link.getBoundingClientRect();
+    nav.style.setProperty('--nav-thumb-x', `${Math.round(linkBox.left - navBox.left)}px`);
+    nav.style.setProperty('--nav-thumb-w', `${Math.round(linkBox.width)}px`);
+  };
+
+  const setActive = (key) => {
+    nav.dataset.active = key;
+    links.forEach((link) => {
+      const on = link.dataset.nav === key;
+      link.classList.toggle('is-active', on);
+      if (on) placeThumb(link);
+    });
+  };
+
+  show(nav);
+  requestAnimationFrame(() => {
+    const current = links.find((l) => l.classList.contains('is-active')) || links[0];
+    placeThumb(current);
+  });
+
+  if (!reducedMotion) {
+    nav.addEventListener(
+      'animationend',
+      (e) => {
+        if (e.animationName !== 'om-nav-in') return;
+        nav.classList.add('nav-pill--live');
+      },
+      { once: true }
+    );
+  }
+
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      const key = link.dataset.nav || 'accueil';
+      setActive(key);
+    });
+  });
+
+  window.addEventListener('resize', () => {
+    const current = links.find((l) => l.classList.contains('is-active')) || links[0];
+    placeThumb(current);
+  });
+
+  if (!fondateur || !('IntersectionObserver' in window)) return;
+
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) setActive('moi');
+        else if (entry.boundingClientRect.top > 0) setActive('accueil');
+      });
+    },
+    { rootMargin: '-35% 0px -45% 0px', threshold: 0 }
+  );
+  spy.observe(fondateur);
+})();
+
 if (reducedMotion || !('IntersectionObserver' in window)) {
   document.documentElement.classList.add('no-motion');
   animated.forEach(show);
@@ -221,7 +291,221 @@ if (slider && rateVal && monthlyVal) {
   });
 })();
 
-// ---------- Sticky CTA mobile (home) ----------
+// ---------- Bulle photo + chatbot FAQ (réponses du site, pas d’IA externe) ----------
+(function initAxChat() {
+  const bubble = document.getElementById('faq-bubble');
+  const chat = document.getElementById('ax-chat');
+  const messages = document.getElementById('ax-chat-messages');
+  const chipsEl = document.getElementById('ax-chat-chips');
+  const form = document.getElementById('ax-chat-form');
+  const input = document.getElementById('ax-chat-input');
+  const closeBtn = document.getElementById('ax-chat-close');
+  if (!bubble || !chat || !messages || !form || !input) return;
+
+  const CALENDLY =
+    typeof CALENDLY_URL === 'string'
+      ? CALENDLY_URL
+      : 'https://calendly.com/nolan-hermand-automatex-hub/30min';
+
+  const CHIPS = [
+    'Combien ça coûte ?',
+    'Obat suffit-il ?',
+    'Mon outil n’est pas listé',
+    'Réserver une démo',
+  ];
+
+  const KB = [
+    {
+      keys: ['prix', 'coute', 'coûte', 'tarif', 'combien', '390', '99', 'cout'],
+      html:
+        'À partir de <strong>390&nbsp;€ + 99&nbsp;€/mois</strong>. Sans engagement · 30&nbsp;j remboursé · RGPD France. On cadre ça en 20&nbsp;min avant toute facturation.',
+    },
+    {
+      keys: ['obat', 'relance', 'logiciel'],
+      html:
+        'Non : Obat sert au chiffrage, il ne relance pas tout seul. AutomateX-HUB se branche sur Obat et Gmail pour envoi, suivi et relances. Jusqu’à 8&nbsp;h/semaine.',
+    },
+    {
+      keys: ['heure', 'temps', 'soirée', 'semaine', 'gagne'],
+      html:
+        'Jusqu’à <strong>8&nbsp;h par semaine</strong> récupérées sur devis, relances et mails. À 55&nbsp;€/h, environ 1&nbsp;910&nbsp;€ de temps récupéré par mois.',
+    },
+    {
+      keys: ['outil', 'listé', 'liste', 'pas dans', 'batigest', 'excel', 'autre'],
+      html:
+        'La liste (Obat, Gmail, Outlook, Telegram, WhatsApp) montre les plus courants. Si ton outil n’est pas cité, on le regarde ensemble pendant la démo de 20&nbsp;min.',
+    },
+    {
+      keys: ['demo', 'démo', 'rdv', 'rendez', 'appel', 'calendly', 'réserver', 'reserver', 'parler'],
+      html: 'On se parle 20&nbsp;min sur ton cas — sans engagement.',
+      cta: true,
+    },
+    {
+      keys: ['engagement', 'résil', 'resil', 'rembours', 'rgpd'],
+      html:
+        'Sans engagement · résiliable en 1 mail · 30&nbsp;jours remboursés · RGPD France (données en France / UE selon le parcours).',
+    },
+    {
+      keys: ['qui', 'nolan', 'menuisier', 'flers', 'orne', 'où', 'ou es'],
+      html:
+        'Moi c’est Nolan Hermand, ancien menuisier, basé à Saint-Georges-des-Groseillers près de Flers (Orne). J’automatise devis / relances / mails pour artisans du bâtiment.',
+    },
+    {
+      keys: ['gmail', 'outlook', 'whatsapp', 'telegram', 'branche'],
+      html:
+        'AutomateX-HUB se branche sur ce que tu as déjà : Obat, Gmail, Outlook, Telegram ou WhatsApp. On ne te fait pas changer de logiciel pour le plaisir.',
+    },
+  ];
+
+  const WELCOME =
+    'Salut — je réponds aux questions du site (prix, outils, délais). Pour ton cas précis, mieux vaut une démo de 20&nbsp;min.';
+  const FALLBACK =
+    'Je n’ai pas cette réponse ici. Regarde la <a href="#faq">FAQ</a>, ou réserve 20&nbsp;min : on regarde ton cas ensemble.';
+
+  let openedOnce = false;
+
+  function syncBubble() {
+    const chatOpen = !chat.hasAttribute('hidden');
+    if (chatOpen) bubble.setAttribute('hidden', '');
+    else bubble.removeAttribute('hidden');
+    bubble.setAttribute('aria-expanded', chatOpen ? 'true' : 'false');
+    document.body.classList.toggle('ax-chat-open', chatOpen);
+  }
+
+  function watchCookieBanner() {
+    const update = () => {
+      document.body.classList.toggle(
+        'has-cookie-banner',
+        !!document.getElementById('cookie-banner')
+      );
+    };
+    update();
+    const mo = new MutationObserver(update);
+    mo.observe(document.body, { childList: true });
+  }
+
+  function addMsg(html, role) {
+    const el = document.createElement('div');
+    el.className = 'ax-chat__msg ax-chat__msg--' + role;
+    el.innerHTML = html;
+    messages.appendChild(el);
+    messages.scrollTop = messages.scrollHeight;
+    return el;
+  }
+
+  function addBot(html, withCta) {
+    let body = html;
+    if (withCta) {
+      body +=
+        '<a class="ax-chat__cta js-calendly" href="' +
+        CALENDLY +
+        '">Démo gratuite 20 min sur ton cas</a>';
+    }
+    const el = addMsg(body, 'bot');
+    el.querySelectorAll('.js-calendly').forEach((a) => {
+      a.addEventListener('click', openCalendly);
+    });
+    return el;
+  }
+
+  function answer(text) {
+    const q = text
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+    for (let i = 0; i < KB.length; i++) {
+      const item = KB[i];
+      for (let k = 0; k < item.keys.length; k++) {
+        const key = item.keys[k]
+          .normalize('NFD')
+          .replace(/[\u0300-\u036f]/g, '');
+        if (q.indexOf(key) !== -1) {
+          addBot(item.html, !!item.cta);
+          return;
+        }
+      }
+    }
+    addBot(FALLBACK, true);
+  }
+
+  function renderChips() {
+    if (!chipsEl) return;
+    chipsEl.innerHTML = '';
+    CHIPS.forEach((label) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'ax-chat__chip';
+      b.textContent = label;
+      b.addEventListener('click', () => {
+        addMsg(label, 'user');
+        answer(label);
+      });
+      chipsEl.appendChild(b);
+    });
+  }
+
+  function openChat() {
+    chat.removeAttribute('hidden');
+    if (!openedOnce) {
+      messages.innerHTML = '';
+      addBot(WELCOME, true);
+      renderChips();
+      openedOnce = true;
+    }
+    syncBubble();
+    window.setTimeout(() => input.focus(), 50);
+  }
+
+  function closeChat() {
+    chat.setAttribute('hidden', '');
+    syncBubble();
+    bubble.focus();
+  }
+
+  function onBubbleActivate(e) {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    if (chat.hasAttribute('hidden')) openChat();
+    else closeChat();
+  }
+
+  bubble.addEventListener('click', onBubbleActivate);
+  bubble.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onBubbleActivate(e);
+    }
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeChat);
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const raw = (input.value || '').trim();
+    if (!raw) return;
+    addMsg(raw.replace(/</g, '&lt;'), 'user');
+    input.value = '';
+    answer(raw);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !chat.hasAttribute('hidden')) {
+      e.preventDefault();
+      closeChat();
+    }
+  });
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    bubble.style.animation = 'none';
+  }
+
+  watchCookieBanner();
+  syncBubble();
+})();
+
+// ---------- Sticky CTA mobile (home + métiers + zone si #sticky-cta) ----------
 (function initStickyCta() {
   const sticky = document.getElementById('sticky-cta');
   if (!sticky) return;

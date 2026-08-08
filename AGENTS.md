@@ -2,6 +2,12 @@
 
 Point d’entrée pour tout agent IA (Cursor ou autre) qui travaille sur ce dépôt.
 
+## Design
+- Look « dossier papier / plan de bâtiment » — préserver l’identité
+- **Grille 8px** pour espacements UI (voir `.cursor/rules/automatex-hub.mdc`)
+- Mobile-first ; sticky CTA ; Calendly popup
+- Couleurs : ink / terracotta CTA / fond plan
+
 ## Mission
 Site marketing statique pour **AutomateX-HUB** : automatisation devis / relances / mails pour artisans du bâtiment (Flers / Orne). Conversion → appel Calendly 20 min.
 
@@ -64,4 +70,5 @@ npx lighthouse http://127.0.0.1:8765/ --only-categories=performance --form-facto
 - Réintroduire diagnostiqueurs / courtiers / grille tarifaire 3 offres
 - Inventer clients, avis, logos
 - Remplacer le design dossier par un template générique
-- Passer sur Next.js / React sans ordre explicite
+- Transformer le site en app (Next.js, React, Vue, SSR, SPA) — **jamais**
+- Proposer une migration framework « pour la maintenabilité » : refuser, éditer l’HTML existant

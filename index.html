@@ -23,12 +23,17 @@
 <meta name="author" content="Nolan Hermand, AutomateX-HUB">
 <meta name="geo.region" content="FR-61">
 <meta name="geo.placename" content="Saint-Georges-des-Groseillers">
-<link rel="stylesheet" href="styles.min.css">
+<link rel="stylesheet" href="styles.min.css?v=13">
 
 <style>html,body{margin:0;background:#c5ced8;color:#1F2428;font-family:system-ui,sans-serif}</style>
 <script>window.addEventListener("load",function(){var l=document.createElement("link");l.rel="stylesheet";l.href="/assets/fonts/fonts.min.css";document.head.appendChild(l);});</script>
 </head>
 <body>
+<nav class="nav-pill anim-run" aria-label="Navigation principale" data-active="accueil">
+  <span class="nav-pill__thumb" aria-hidden="true"></span>
+  <a href="/" class="nav-pill__link is-active" data-nav="accueil">Accueil</a>
+  <a href="#fondateur" class="nav-pill__link" data-nav="moi">Moi</a>
+</nav>
 <main class="page">
 
   <!-- ============ Hero ============ -->
@@ -61,7 +66,7 @@
       <figure class="polaroid hero-polaroid hero-polaroid--out anim-run">
         <button type="button" class="hero-polaroid-link js-lightbox-open" aria-haspopup="dialog" aria-controls="dash-lightbox" aria-label="Agrandir l'exemple d'application métier AutomateX-OS">
           <div class="polaroid-frame">
-            <img class="hero-dash" data-defer-src="uploads/automatex-os-dashboard-512.webp" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-defer-srcset="uploads/automatex-os-dashboard-512.webp 512w, uploads/automatex-os-dashboard.webp 1024w" sizes="(min-width: 720px) 290px, 240px" alt="Exemple d'application métier AutomateX-OS : temps gagné, devis, mails triés" width="1024" height="535" loading="lazy" decoding="async" decoding="async">
+            <img class="hero-dash" data-defer-src="uploads/automatex-os-dashboard-512.webp" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-defer-srcset="uploads/automatex-os-dashboard-512.webp 512w, uploads/automatex-os-dashboard.webp 1024w" sizes="(min-width: 720px) 290px, 240px" alt="Exemple d'application métier AutomateX-OS : temps gagné, devis, mails triés" width="1024" height="535" loading="lazy" decoding="async">
           </div>
           <span class="hero-polaroid-caption">Exemple d'application métier</span>
         </button>
@@ -107,13 +112,13 @@
     <div class="paper reveal tools-card">
       <div class="mono-head tools-label">BRANCHÉ SUR CE QUE VOUS AVEZ DÉJÀ</div>
       <div class="tools-grid">
-        <div class="tool anim-run"><div class="tool-box tool-box--text">obat</div><span>Obat</span></div>
-        <div class="tool anim-run"><div class="tool-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#1F2428" d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg></div><span>Gmail</span></div>
-        <div class="tool anim-run"><div class="tool-box tool-box--letter">O</div><span>Outlook</span></div>
-        <div class="tool anim-run"><div class="tool-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#1F2428" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div><span>Telegram</span></div>
-        <div class="tool anim-run"><div class="tool-box"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="#1F2428" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg></div><span>WhatsApp</span></div>
+        <div class="tool anim-run"><div class="tool-box tool-box--obat"><img src="/assets/icons/obat-icon.webp" alt="" width="36" height="36" loading="lazy" decoding="async"></div><span>Obat</span></div>
+        <div class="tool anim-run"><div class="tool-box tool-box--gmail"><img src="/assets/icons/gmail.svg" alt="" width="36" height="36" loading="lazy" decoding="async"></div><span>Gmail</span></div>
+        <div class="tool anim-run"><div class="tool-box tool-box--outlook"><img src="/assets/icons/outlook.webp" alt="" width="36" height="36" loading="lazy" decoding="async"></div><span>Outlook</span></div>
+        <div class="tool anim-run"><div class="tool-box tool-box--telegram"><img src="/assets/icons/telegram.svg" alt="" width="36" height="36" loading="lazy" decoding="async"></div><span>Telegram</span></div>
+        <div class="tool anim-run"><div class="tool-box tool-box--whatsapp"><img src="/assets/icons/whatsapp.svg" alt="" width="36" height="36" loading="lazy" decoding="async"></div><span>WhatsApp</span></div>
       </div>
-      <p class="tools-note">Vos outils restent. Le mien se branche dessus et fait le sale boulot — Obat, Gmail ou Outlook, sans tout changer.</p>
+      <p class="tools-note">Tes outils restent. Le mien se branche dessus et fait le sale boulot — Obat, Gmail ou Outlook, sans tout changer. <strong>Ton outil n’est pas dans la liste&nbsp;? On voit ça ensemble au rendez-vous.</strong></p>
     </div>
   </section>
 
@@ -137,7 +142,7 @@
           <p><strong>Ça devient un levier de croissance.</strong> Du temps rendu au chantier et aux clients — pas à la paperasse du soir.</p>
         </div>
       </div>
-      <p class="levier-close">Résultat : moins de devis perdus, plus de soirées chez vous. Jusqu’à 8&nbsp;h / semaine récupérées. On cadre ça en 20&nbsp;min sur votre cas.</p>
+      <p class="levier-close">Résultat : moins de devis perdus, plus de soirées chez vous. Jusqu’à 8&nbsp;h / semaine récupérées. On cadre ça en 20&nbsp;min sur ton cas.</p>
       <a href="https://calendly.com/nolan-hermand-automatex-hub/30min" class="btn btn--levier js-calendly">Démo gratuite 20 min sur ton cas</a>
       <p class="cta-reassure">Sans engagement · 1 mail pour résilier · 30&nbsp;j remboursé</p>
     </div>
@@ -172,7 +177,7 @@
         <h2>Qui est derrière AutomateX-HUB à Flers&nbsp;?</h2>
         <div class="founder-text">
           <p>Moi c'est Nolan. Je suis de Flers. Gamin, j'étais mordu d'informatique. Je voulais en faire mon métier. On m'a dit non — pas le profil, trop cancre pour ça.</p>
-          <p>Alors j'ai fait ce qui se présentait. Deux ans d'apprentissage en menuiserie, puis la couverture. J'ai appris le bâtiment avec les mains, sur les chantiers d'ici.</p>
+          <p>Alors j'ai fait ce qui se présentait. Deux ans d'apprentissage en <strong>menuiserie</strong> — mon métier de base — puis des chantiers de couverture. J'ai appris le bâtiment avec les mains, ici dans le Bocage.</p>
           <p>Et partout, la même scène. Mes patrons, bons dans leur métier, en train de se noyer. Pas dans le travail — dans la paperasse et le téléphone.</p>
           <p class="strong">Le truc qu'on m'avait interdit d'apprendre, c'était exactement ce qui pouvait les sortir de là.</p>
           <p>Aujourd'hui, je le fais. Je construis des outils faits pour <strong>VOTRE</strong> métier — un par entreprise, pas un logiciel de plus que personne n'ouvre. Pour que chaque artisan et chaque PME du bâtiment du Bocage aient leurs propres outils, qui bossent pendant qu'ils dorment.</p>
@@ -197,7 +202,7 @@
       <p class="calc-note">On se parle d'abord. Pas d'engagement. 30&nbsp;jours remboursés · résiliable en 1 mail · RGPD France.</p>
     </div>
     <div class="paper reveal faq-card" id="faq">
-      <h2>Questions fréquentes sur l’automatisation devis</h2>
+      <h2>Questions fréquentes sur l’automatisation</h2>
       <div class="faq-grid">
         <div class="faq-item">
           <h3>Comment un artisan peut automatiser ses devis sans changer de logiciel&nbsp;?</h3>
@@ -210,6 +215,10 @@
         <div class="faq-item">
           <h3>Combien d'heures un artisan récupère avec des relances automatiques&nbsp;?</h3>
           <p>Jusqu’à 8&nbsp;h par semaine. À 55&nbsp;€/h, environ 1&nbsp;910&nbsp;€ de temps récupéré par mois. Ajustez le curseur à gauche selon votre taux.</p>
+        </div>
+        <div class="faq-item">
+          <h3>Mon outil n’est pas dans la liste (Obat, Gmail…)&nbsp;: vous le branchez quand même&nbsp;?</h3>
+          <p>Oui. La liste montre les plus courants. Si ton outil n’est pas cité, on le regarde ensemble pendant la démo de 20&nbsp;min — et on décide si on peut le brancher sur ton cas.</p>
         </div>
         <div class="faq-item">
           <h3>Quel prix pour automatiser devis et mails en TPE bâtiment&nbsp;?</h3>
@@ -232,6 +241,31 @@
 
 </main>
 
+<button type="button" class="faq-bubble" id="faq-bubble" aria-expanded="false" aria-controls="ax-chat">
+  <img class="faq-bubble__photo" src="/uploads/nolan-600.webp" alt="" width="32" height="32" decoding="async">
+  <span class="faq-bubble__text">Vous avez des questions&nbsp;?</span>
+</button>
+
+<div class="ax-chat" id="ax-chat" hidden>
+  <div class="ax-chat__panel" role="dialog" aria-labelledby="ax-chat-title" aria-modal="true">
+    <header class="ax-chat__head">
+      <img class="ax-chat__avatar" src="/uploads/nolan-600.webp" alt="" width="40" height="40" decoding="async">
+      <div class="ax-chat__head-copy">
+        <p id="ax-chat-title" class="ax-chat__title">Nolan · AutomateX-HUB</p>
+        <p class="ax-chat__sub">Questions rapides — réponses du site</p>
+      </div>
+      <button type="button" class="ax-chat__close" id="ax-chat-close" aria-label="Fermer le chat">×</button>
+    </header>
+    <div class="ax-chat__messages" id="ax-chat-messages" role="log" aria-live="polite"></div>
+    <div class="ax-chat__chips" id="ax-chat-chips" aria-label="Questions suggérées"></div>
+    <form class="ax-chat__form" id="ax-chat-form">
+      <label class="sr-only" for="ax-chat-input">Votre question</label>
+      <input id="ax-chat-input" class="ax-chat__input" type="text" name="q" autocomplete="off" maxlength="200" placeholder="Écrivez votre question…">
+      <button type="submit" class="ax-chat__send">OK</button>
+    </form>
+  </div>
+</div>
+
 <div class="sticky-cta" id="sticky-cta" hidden>
   <a href="https://calendly.com/nolan-hermand-automatex-hub/30min" class="btn sticky-cta__btn js-calendly">Démo gratuite 20 min sur ton cas</a>
   <p class="sticky-cta__reassure">Sans engagement · 30&nbsp;j remboursé</p>
@@ -240,7 +274,7 @@
 <footer class="site-footer">
   <div class="site-footer-inner">
     <p><strong>AutomateX-HUB (Automatex)</strong> · Nolan Hermand · Saint-Georges-des-Groseillers — automatisation devis, relances et mails pour artisans du bâtiment.<br>
-      50 rue de l’Equerre, 61100 Saint-Georges-des-Groseillers · <a href="tel:+33645384233">06&nbsp;45&nbsp;38&nbsp;42&nbsp;33</a> · <a href="mailto:nolan.hermand@automatex-hub.com">nolan.hermand@automatex-hub.com</a></p>
+      50 rue de l’Équerre, 61100 Saint-Georges-des-Groseillers · <a href="tel:+33645384233">06&nbsp;45&nbsp;38&nbsp;42&nbsp;33</a> · <a href="mailto:nolan.hermand@automatex-hub.com">nolan.hermand@automatex-hub.com</a></p>
     <nav class="site-footer-nav" aria-label="Navigation pied de page">
       <a href="/">Accueil</a>
       <a href="/automatisation-artisans-flers-orne/">Zone Flers / Orne</a>
@@ -250,7 +284,7 @@
       <a href="/plaquistes/">Plaquistes</a>
       <a href="/electriciens/">Électriciens</a>
       <a href="/articles/">Articles</a>
-      <a href="/#faq">FAQ</a>
+      <a href="#faq">FAQ</a>
       <a href="/mentions-legales/">Mentions légales</a>
       <a href="/confidentialite/">Confidentialité</a>
     </nav>
@@ -279,7 +313,7 @@
       "@type": "Organization",
       "@id": "https://automatex-hub.com/#organization",
       "name": "AutomateX-HUB",
-      "legalName": "AutomateX-HUB",
+      "legalName": "Automatex",
       "alternateName": "Automatex",
       "url": "https://automatex-hub.com/",
       "logo": "https://automatex-hub.com/assets/logo-ax.svg",
@@ -299,7 +333,7 @@
       },
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "50 rue de l'Equerre",
+        "streetAddress": "50 rue de l'Équerre",
         "addressLocality": "Saint-Georges-des-Groseillers",
         "postalCode": "61100",
         "addressRegion": "Orne",
@@ -330,7 +364,7 @@
       },
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "50 rue de l'Equerre",
+        "streetAddress": "50 rue de l'Équerre",
         "addressLocality": "Saint-Georges-des-Groseillers",
         "postalCode": "61100",
         "addressRegion": "Orne",
@@ -397,6 +431,14 @@
         },
         {
           "@type": "Question",
+          "name": "Mon outil n'est pas dans la liste : vous le branchez quand même ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Obat, Gmail, Outlook, Telegram et WhatsApp sont les plus courants. Si votre outil n'est pas cité, on le regarde ensemble pendant la démo de 20 minutes et on décide si on peut le brancher sur votre cas."
+          }
+        },
+        {
+          "@type": "Question",
           "name": "Quel prix pour automatiser devis et mails en TPE bâtiment ?",
           "acceptedAnswer": {
             "@type": "Answer",
@@ -419,6 +461,6 @@
 }
 </script>
 
-<script src="script.js?v=7" defer></script>
+<script src="script.js?v=14" defer></script>
 </body>
 </html>

@@ -12,7 +12,8 @@ Tu édites le site marketing AutomateX-HUB. Tu ne reconstruis pas le site from s
 - HTML statique + `styles.css` / `styles.min.css` + `script.js`
 - Déploiement : Netlify (`netlify.toml`)
 - Domaine : `https://automatex-hub.com`
-- **Pas** de Next.js / React / bundler sauf demande explicite du fondateur
+- **Ce site ne devient jamais une app.** Pas de Next.js / React / Vue / bundler / SSR.
+- Toute « modernisation stack » hors HTML/CSS/JS statique = hors scope, à refuser sauf ordre écrit explicite du fondateur.
 
 ## Workflow CSS (obligatoire)
 1. **Éditer** `styles.css` (source lisible).
@@ -33,6 +34,7 @@ Tu édites le site marketing AutomateX-HUB. Tu ne reconstruis pas le site from s
 
 ## Design
 - Look « dossier papier / plan de bâtiment » — préserver l’identité
+- **Grille 8px** : margin, padding, gap, offsets (top/left/right/bottom), tailles de chips/bulles = multiples de 8. Bordures 2px et tailles de police peuvent déroger.
 - Mobile-first ; sticky CTA home ; Calendly en **popup** (pas nouvel onglet)
 - Couleurs : ink `#1F2428`, orange CTA `#F26419`, fond plan `#c5ced8`
 - Fonts self-host : Manrope via `/assets/fonts/` (chargement différé). Pas de Google Fonts CDN.
