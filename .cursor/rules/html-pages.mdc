@@ -15,6 +15,7 @@ alwaysApply: false
 ## Chemins relatifs
 - Racine : `styles.min.css`, `script.js?v=N`
 - `/metier/` : `../styles.min.css`, `../script.js?v=N`
+- `/outils/slug/` : `../../styles.min.css`, `../../script.js?v=N`
 - `/articles/slug/` : `../../styles.min.css`, `../../script.js?v=N`
 
 ## Quand tu ajoutes une page
@@ -22,3 +23,9 @@ alwaysApply: false
 2. Mettre à jour `sitemap.xml`.
 3. Ajouter le lien footer / maillage pertinent.
 4. Bumper `?v=` sur `script.js` si JS change.
+
+## 404
+- Fichier racine `404.html` (Netlify le sert automatiquement).
+- Chemins **absolus** (`/styles.min.css`, `/script.js`) — l’URL navigateur peut être n’importe quel chemin manquant.
+- CTA principal : « Démo gratuite 20 min sur ton cas » (`js-calendly`) + secondaire « Revenir au site » → `/`.
+- `noindex, follow`.

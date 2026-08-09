@@ -15,7 +15,9 @@ python3 scripts/minify-css.py
 ```
 
 ## Pour les agents IA
-Lire **[AGENTS.md](./AGENTS.md)** et `.cursor/rules/` avant toute modification.
+- **Claude** : lire **[CLAUDE.md](./CLAUDE.md)** (brief projet)
+- **Tous agents** : **[AGENTS.md](./AGENTS.md)** + `.cursor/rules/` avant toute modification
+
 
 ## Stack
 - Pages HTML (App-like folders avec `index.html`)

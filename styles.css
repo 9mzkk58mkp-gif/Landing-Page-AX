@@ -934,6 +934,92 @@ h1 {
   font-weight: 800
 }
 
+.page--error {
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: center;
+}
+.section--error {
+  width: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.error-card {
+  position: relative;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 24px 40px;
+}
+.error-card .hook {
+  margin: 8px 0 16px;
+  font-size: 28px;
+  line-height: 1.2;
+}
+.error-lead {
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--slate);
+  max-width: 36em;
+}
+.error-cta {
+  margin: 0 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 16px;
+}
+.error-cta .btn {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 16px 24px;
+  box-sizing: border-box;
+}
+.btn--error-back {
+  background: #fff;
+  color: var(--ink);
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1.25;
+}
+.btn--error-back:hover,
+.btn--error-back:focus-visible {
+  color: var(--ink);
+}
+.error-cta .cta-reassure {
+  margin: 0;
+  text-align: center;
+}
+.error-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding-top: 16px;
+  border-top: 2px solid var(--ink);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+.error-links a {
+  color: var(--ink);
+  text-decoration: none;
+}
+.error-links a:hover,
+.error-links a:focus-visible {
+  color: var(--orange);
+  outline: none;
+}
+@media (min-width: 980px) {
+  .error-card {
+    padding: 40px 40px 48px;
+  }
+  .error-card .hook {
+    font-size: 36px;
+  }
+}
+
 .legal-prose h2 {
   margin: 28px 0 10px;
   font-size: 18px;
@@ -2648,6 +2734,49 @@ body.has-sticky-cta .ax-chat {
   box-shadow: 4px 4px 0 rgba(31, 36, 40, .18);
   animation: om-n8n-pop .55s cubic-bezier(.34, 1.4, .64, 1) var(--n8n-delay, 0s) both paused;
   transition: transform .2s cubic-bezier(.34, 1.56, .64, 1), box-shadow .2s ease
+}
+
+.n8n-card__link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+.n8n-card:has(.n8n-card__link):hover,
+.n8n-card:has(.n8n-card__link):focus-within {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+.outils-priority {
+  margin: 16px 0 0;
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+.outils-priority a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.outils-priority a:hover {
+  color: var(--orange);
+}
+.outil-hero-logo {
+  width: 56px;
+  height: 56px;
+  display: grid;
+  place-items: center;
+  margin: 0 0 16px;
+  border: 2px solid var(--ink);
+  background: #fff;
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.outil-hero-logo img {
+  width: 32px;
+  height: 32px;
+  display: block;
 }
 
 .n8n-card__logo {

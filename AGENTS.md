@@ -13,17 +13,19 @@ Site marketing statique pour **AutomateX-HUB** : automatisation devis / relances
 
 ## Lire dans cet ordre
 1. Ce fichier
-2. `.cursor/rules/automatex-hub.mdc` (règles toujours actives)
-3. `.cursor/rules/html-pages.mdc` si tu touches du HTML
-4. `README.md` (preview, build CSS, deploy)
+2. `CLAUDE.md` (brief produit pour Claude — même contenu utile à tout agent)
+3. `.cursor/rules/automatex-hub.mdc` (règles toujours actives)
+4. `.cursor/rules/html-pages.mdc` si tu touches du HTML
+5. `README.md` (preview, build CSS, deploy)
 
 ## Carte du repo
 
 | Chemin | Rôle |
 |--------|------|
+| `404.html` | Page erreur Netlify (dossier papier + « Revenir au site ») |
 | `index.html` | Landing conversion (sticky CTA, lightbox OS) |
 | `couvreurs/` `menuisiers/` `plombiers/` `plaquistes/` `electriciens/` | Pages métier SEO/GEO |
-| `outils/` | Mur 30 nœuds n8n + logos SVG animés |
+| `outils/` | Mur 30 nœuds n8n + 4 pages usage (Gmail, WhatsApp, Outlook, Sheets) |
 | `automatisation-artisans-flers-orne/` | Page zone |
 | `articles/` | Hub + articles intention |
 | `mentions-legales/` `confidentialite/` | Légal / RGPD |
@@ -55,10 +57,18 @@ python3 scripts/serve.py
 # Après toute modif CSS
 python3 scripts/minify-css.py
 
+# Audit objectif (base pour score /1000)
+python3 scripts/ax-score.py
+
 # Perf mobile (serveur gzip requis)
 npx lighthouse http://127.0.0.1:8765/ --only-categories=performance --form-factor=mobile --chrome-flags="--headless=new"
 ```
 
+## Audit score /1000
+- Skill : `.cursor/skills/ax-audit-1000/` (dire « note le site » / « audit 1000 »)
+- Agents : `.cursor/agents/ax-audit-*.md` (orchestrateur + 7 domaines)
+- Rubrique : `.cursor/skills/ax-audit-1000/rubric.md`
+- Script : `python3 scripts/ax-score.py`
 ## Definition of done (changement typique)
 - [ ] Fichiers listés en tête de réponse
 - [ ] Copy conforme (prix, métiers, CTA, pas de faux témoignages)

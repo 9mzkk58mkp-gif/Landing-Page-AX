@@ -1,0 +1,13 @@
+---
+description: Déclenche l’audit AutomateX-HUB noté sur 1000 points
+alwaysApply: false
+---
+
+# Audit /1000
+
+Si l’utilisateur demande de **noter le site**, **audit 1000**, **score AutomateX**, ou **vérifier le site** de façon globale :
+
+1. Charger la skill `.cursor/skills/ax-audit-1000/SKILL.md`
+2. Exécuter `python3 scripts/ax-score.py`
+3. Utiliser les agents `.cursor/agents/ax-audit-*.md`
+4. Rendre un total **/1000** avec tableau des domaines
