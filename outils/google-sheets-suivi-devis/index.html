@@ -22,7 +22,7 @@
 <meta name="author" content="Nolan Hermand, AutomateX-HUB">
 <meta name="geo.region" content="FR-61">
 <meta name="geo.placename" content="Saint-Georges-des-Groseillers">
-<link rel="stylesheet" href="../../styles.min.css?v=18">
+<link rel="stylesheet" href="../../styles.min.css?v=22">
 <style>html,body{margin:0;background:#c5ced8;color:#1F2428;font-family:system-ui,sans-serif}</style>
 <script>window.addEventListener("load",function(){var l=document.createElement("link");l.rel="stylesheet";l.href="/assets/fonts/fonts.min.css";document.head.appendChild(l);});</script>
 </head>
@@ -54,12 +54,14 @@
  <section class="section">
  <div class="paper reveal">
  <div class="article-prose">
-<h2>Le tableau Excel du dimanche, c’est fini&nbsp;?</h2>
-<p>Souvent oui : une ligne par devis, mise à jour quand le mail part ou que le client répond. Tu consultes le soir dans ton <strong>application métier</strong> (ou le Sheet), sans retaper.</p>
-<h2>Usages typiques</h2>
-<ul><li>Pipeline devis (envoyé / vu / signé / perdu).</li><li>Date de prochaine relance.</li><li>Montants et métier (couverture, menuiserie…).</li><li>Export simple pour ton comptable si besoin.</li></ul>
-<h2>Sheets + mail = duo gagnant</h2>
-<p>Branche aussi <a href="/outils/gmail-relances-devis/">Gmail</a> ou <a href="/outils/outlook-mails-devis/">Outlook</a>. Pour le chiffrage Obat : <a href="/articles/automatiser-obat-gmail-artisan/">Obat + Gmail</a>.</p>
+<h2>Process : brancher Google Sheets en 4 étapes</h2>
+<ol><li>On cadre les colonnes utiles (devis, montant, statut, prochaine relance).</li><li>On crée / connecte un Sheet partagé via n8n.</li><li>Chaque envoi mail ou réponse met à jour la ligne — plus de saisie dimanche.</li><li>Vue soir dans le Sheet ou dans ton application métier.</li></ol>
+<h2>Pour qui c’est fait</h2>
+<p>Artisans qui suivent encore les devis dans un Excel local ou un carnet — et qui veulent un pipeline clair sans logiciel lourd. Couvreurs, menuisiers, plombiers, plaquistes, électriciens.</p>
+<h2>Limites (honnêtes)</h2>
+<p>Sheets <strong>suit</strong> ; il ne chiffre pas. Obat (ou équivalent) reste pour le devis. Duo mail : <a href="/outils/gmail-relances-devis/">Gmail</a> / <a href="/outils/outlook-mails-devis/">Outlook</a>. Obat+Gmail : <a href="/articles/automatiser-obat-gmail-artisan/">guide Obat</a>.</p>
+<h2>Ce que tu gagnes</h2>
+<ul><li>Pipeline devis à jour sans retaper.</li><li>Date de prochaine relance visible.</li><li>Moins d’oubli entre deux chantiers.</li></ul><p>Jusqu’à <strong>8&nbsp;h/semaine</strong> quand devis + mails + suivi sont branchés ensemble.</p>
  <div class="article-cta-inline">
  <a href="https://calendly.com/nolan-hermand-automatex-hub/30min" class="btn js-calendly">Démo gratuite 20 min sur ton cas</a>
  <p class="cta-reassure">Sans engagement · 1 mail pour résilier · RGPD France</p>
@@ -91,11 +93,13 @@
  <section class="section" id="maillage">
  <div class="paper reveal">
  <h2>Autres usages outils</h2>
- <nav class="metiers-nav" aria-label="Pages outils liées">
+  <nav class="metiers-nav" aria-label="Pages outils liées">
 <a href="/outils/gmail-relances-devis/">Gmail × relances devis</a>
-<a href="/outils/whatsapp-alertes-chantier/">WhatsApp × alertes</a>
-<a href="/articles/prix-automatisation-tpe-batiment/">Prix automatisation TPE</a>
-<a href="/outils/">Mur 30 outils n8n</a>
+<a href="/outils/outlook-mails-devis/">Outlook × mails</a>
+<a href="/articles/automatiser-obat-gmail-artisan/">Obat + Gmail</a>
+<a href="/couvreurs/">Couvreurs</a>
+<a href="/menuisiers/">Menuisiers</a>
+<a href="/electriciens/">Électriciens</a>
  </nav>
  </div>
  </section>
@@ -234,6 +238,6 @@
  ]
 }
 </script>
-<script src="../../script.js?v=20" defer></script>
+<script src="../../script.js?v=23" defer></script>
 </body>
 </html>

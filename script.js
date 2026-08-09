@@ -76,76 +76,165 @@ document.querySelectorAll('.js-calendly').forEach((a) => {
  else window.addEventListener('load', () => setTimeout(run, 200));
 })();
 
-// ---------- Révélations au scroll ----------
-const animated = document.querySelectorAll('.reveal, .anim-run');
+// ---------- Révélations au scroll (rejouent haut ↔ bas) ----------
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 const show = (el) => {
- if (el.classList.contains('reveal')) el.classList.add('in');
- if (el.classList.contains('anim-run')) el.style.animationPlayState = 'running';
+  if (!el) return;
+  el.classList.remove('reveal-wait');
+  if (el.classList.contains('reveal')) el.classList.add('in');
+  if (el.classList.contains('anim-run')) el.style.animationPlayState = 'running';
 };
 
-// Hero above-the-fold : visible + cliquable tout de suite (pas d'attente IO)
-document.querySelectorAll('.section--hero .reveal, .section--hero .anim-run').forEach(show);
+const hideForReplay = (el, dir) => {
+  if (!el || el.closest('.section--hero')) return;
+  el.dataset.revealDir = dir === 'up' ? 'up' : 'down';
+  el.classList.remove('in');
+  el.classList.add('reveal-wait');
+  if (el.classList.contains('anim-run')) el.style.animationPlayState = 'paused';
+};
 
-const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+(function scrollRevealAll() {
+  const AUTO_SEL = [
+    '.paper:not(.reveal)',
+    '.callout:not(.reveal)',
+    '.faq-item',
+    '.n8n-card',
+    '.metiers-nav a',
+    '.article-related a',
+    '.error-card',
+    '.outil-hero-logo',
+    '.site-footer-inner',
+    '.geo-answer:not(.reveal)',
+    '.article-prose',
+    '.legal-prose',
+  ].join(',');
+
+  document.querySelectorAll(AUTO_SEL).forEach((el) => {
+    if (el.closest('.section--hero')) return;
+    if (el.classList.contains('reveal')) return;
+    el.classList.add('reveal');
+  });
+
+  document.querySelectorAll('.faq-grid, .n8n-grid, .metiers-nav, .article-related').forEach((group) => {
+    const kids = group.querySelectorAll(':scope > .reveal, :scope > .faq-item, :scope > .n8n-card, :scope > a');
+    kids.forEach((kid, i) => {
+      kid.classList.add('reveal');
+      kid.style.setProperty('--reveal-delay', `${Math.min(i, 12) * 45}ms`);
+    });
+  });
+
+  const candidates = Array.from(document.querySelectorAll('.reveal, .anim-run'));
+
+  if (reducedMotion || !('IntersectionObserver' in window)) {
+    document.documentElement.classList.add('no-motion');
+    candidates.forEach(show);
+    return;
+  }
+
+  const vh = window.innerHeight || 800;
+  const toObserve = [];
+
+  candidates.forEach((el) => {
+    if (el.closest('.section--hero')) {
+      show(el);
+      return;
+    }
+    const rect = el.getBoundingClientRect();
+    const onScreen = rect.top < vh * 0.9 && rect.bottom > vh * 0.08;
+    if (onScreen) {
+      show(el);
+    } else {
+      el.dataset.revealDir = rect.top >= vh * 0.5 ? 'down' : 'up';
+      el.classList.add('reveal-wait');
+      el.classList.remove('in');
+    }
+    toObserve.push(el);
+  });
+
+  if (!toObserve.length) return;
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const el = entry.target;
+        if (entry.isIntersecting) {
+          show(el);
+          return;
+        }
+        const rootBottom = entry.rootBounds ? entry.rootBounds.bottom : vh;
+        const rootTop = entry.rootBounds ? entry.rootBounds.top : 0;
+        const leavingUp = entry.boundingClientRect.bottom <= rootTop + 4;
+        const leavingDown = entry.boundingClientRect.top >= rootBottom - 4;
+        if (leavingUp) hideForReplay(el, 'up');
+        else if (leavingDown) hideForReplay(el, 'down');
+        else hideForReplay(el, entry.boundingClientRect.top < rootTop ? 'up' : 'down');
+      });
+    },
+    { rootMargin: '-6% 0px -10% 0px', threshold: [0, 0.12, 0.35] }
+  );
+
+  toObserve.forEach((el) => io.observe(el));
+})();
 
 // Navbar pilule : entrée puis flottement + pastille active
 (function navPillMotion() {
- const nav = document.querySelector('.nav-pill');
- if (!nav) return;
+  const nav = document.querySelector('.nav-pill');
+  if (!nav) return;
 
- const links = Array.from(nav.querySelectorAll('.nav-pill__link'));
- const thumb = nav.querySelector('.nav-pill__thumb');
+  const links = Array.from(nav.querySelectorAll('.nav-pill__link'));
+  const thumb = nav.querySelector('.nav-pill__thumb');
 
- const placeThumb = (link) => {
- if (!thumb || !link) return;
- const navBox = nav.getBoundingClientRect();
- const linkBox = link.getBoundingClientRect();
- nav.style.setProperty('--nav-thumb-x', `${Math.round(linkBox.left - navBox.left)}px`);
- nav.style.setProperty('--nav-thumb-w', `${Math.round(linkBox.width)}px`);
- };
+  const placeThumb = (link) => {
+    if (!thumb || !link) return;
+    const navBox = nav.getBoundingClientRect();
+    const linkBox = link.getBoundingClientRect();
+    nav.style.setProperty('--nav-thumb-x', `${Math.round(linkBox.left - navBox.left)}px`);
+    nav.style.setProperty('--nav-thumb-w', `${Math.round(linkBox.width)}px`);
+  };
 
- const setActive = (key) => {
- if (nav.dataset.active === key) {
- const current = links.find((l) => l.dataset.nav === key);
- if (current) placeThumb(current);
- return;
- }
- nav.dataset.active = key;
- links.forEach((link) => {
- const on = link.dataset.nav === key;
- link.classList.toggle('is-active', on);
- if (on) placeThumb(link);
- });
- };
+  const setActive = (key) => {
+    if (nav.dataset.active === key) {
+      const current = links.find((l) => l.dataset.nav === key);
+      if (current) placeThumb(current);
+      return;
+    }
+    nav.dataset.active = key;
+    links.forEach((link) => {
+      const on = link.dataset.nav === key;
+      link.classList.toggle('is-active', on);
+      if (on) placeThumb(link);
+    });
+  };
 
- show(nav);
- requestAnimationFrame(() => {
- const current = links.find((l) => l.classList.contains('is-active')) || links[0];
- placeThumb(current);
- });
+  show(nav);
+  requestAnimationFrame(() => {
+    const current = links.find((l) => l.classList.contains('is-active')) || links[0];
+    placeThumb(current);
+  });
 
- if (!reducedMotion) {
- nav.addEventListener(
- 'animationend',
- (e) => {
- if (e.animationName !== 'om-nav-in') return;
- nav.classList.add('nav-pill--live');
- },
- { once: true }
- );
- }
+  if (!reducedMotion) {
+    nav.addEventListener(
+      'animationend',
+      (e) => {
+        if (e.animationName !== 'om-nav-in') return;
+        nav.classList.add('nav-pill--live');
+      },
+      { once: true }
+    );
+  }
 
- links.forEach((link) => {
- link.addEventListener('click', () => {
- const key = link.dataset.nav || 'accueil';
- setActive(key);
- });
- });
+  links.forEach((link) => {
+    link.addEventListener('click', () => {
+      const key = link.dataset.nav || 'accueil';
+      setActive(key);
+    });
+  });
 
- window.addEventListener('resize', () => {
- const current = links.find((l) => l.classList.contains('is-active')) || links[0];
- placeThumb(current);
- });
+  window.addEventListener('resize', () => {
+    const current = links.find((l) => l.classList.contains('is-active')) || links[0];
+    placeThumb(current);
+  });
 
   const spyMap = [
     { id: 'top', key: 'accueil' },
@@ -155,56 +244,38 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
     { id: 'faq', key: 'faq' },
   ];
 
- const targets = spyMap
- .map((s) => ({ ...s, el: document.getElementById(s.id) }))
- .filter((s) => s.el);
+  const targets = spyMap
+    .map((s) => ({ ...s, el: document.getElementById(s.id) }))
+    .filter((s) => s.el);
 
- if (!targets.length || !('IntersectionObserver' in window)) return;
+  if (!targets.length || !('IntersectionObserver' in window)) return;
 
- const visible = new Map();
+  const visible = new Map();
 
- const spy = new IntersectionObserver(
- (entries) => {
- entries.forEach((entry) => {
- const hit = targets.find((t) => t.el === entry.target);
- if (!hit) return;
- if (entry.isIntersecting) visible.set(hit.key, entry.intersectionRatio);
- else visible.delete(hit.key);
- });
- if (!visible.size) return;
- let bestKey = 'accueil';
- let bestRatio = -1;
- visible.forEach((ratio, key) => {
- if (ratio >= bestRatio) {
- bestRatio = ratio;
- bestKey = key;
- }
- });
- setActive(bestKey);
- },
- { rootMargin: '-28% 0px -48% 0px', threshold: [0, 0.15, 0.35, 0.55] }
- );
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const hit = targets.find((t) => t.el === entry.target);
+        if (!hit) return;
+        if (entry.isIntersecting) visible.set(hit.key, entry.intersectionRatio);
+        else visible.delete(hit.key);
+      });
+      if (!visible.size) return;
+      let bestKey = 'accueil';
+      let bestRatio = -1;
+      visible.forEach((ratio, key) => {
+        if (ratio >= bestRatio) {
+          bestRatio = ratio;
+          bestKey = key;
+        }
+      });
+      setActive(bestKey);
+    },
+    { rootMargin: '-28% 0px -48% 0px', threshold: [0, 0.15, 0.35, 0.55] }
+  );
 
- targets.forEach((t) => spy.observe(t.el));
+  targets.forEach((t) => spy.observe(t.el));
 })();
-
-if (reducedMotion || !('IntersectionObserver' in window)) {
- document.documentElement.classList.add('no-motion');
- animated.forEach(show);
-} else {
- const io = new IntersectionObserver(
- (entries) => {
- entries.forEach((entry) => {
- if (entry.isIntersecting) {
- show(entry.target);
- io.unobserve(entry.target);
- }
- });
- },
- { rootMargin: '0px 0px -4% 0px' }
- );
- animated.forEach((el) => io.observe(el));
-}
 
 // ---------- Calculateur « Devis N° 000 » ----------
 const HOURS_PER_WEEK = 8;

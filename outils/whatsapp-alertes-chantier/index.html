@@ -22,7 +22,7 @@
 <meta name="author" content="Nolan Hermand, AutomateX-HUB">
 <meta name="geo.region" content="FR-61">
 <meta name="geo.placename" content="Saint-Georges-des-Groseillers">
-<link rel="stylesheet" href="../../styles.min.css?v=18">
+<link rel="stylesheet" href="../../styles.min.css?v=22">
 <style>html,body{margin:0;background:#c5ced8;color:#1F2428;font-family:system-ui,sans-serif}</style>
 <script>window.addEventListener("load",function(){var l=document.createElement("link");l.rel="stylesheet";l.href="/assets/fonts/fonts.min.css";document.head.appendChild(l);});</script>
 </head>
@@ -54,12 +54,14 @@
  <section class="section">
  <div class="paper reveal">
  <div class="article-prose">
-<h2>Pourquoi WhatsApp chez les artisans&nbsp;?</h2>
-<p>Les clients écrivent là. Le piège : tout mélanger (devis, «&nbsp;t’es où&nbsp;?&nbsp;», photos) et y passer la soirée. L’automatisation filtre et te notifie quand ça compte.</p>
-<h2>Usages qu’on branche souvent</h2>
-<ul><li>Alerte «&nbsp;devis accepté&nbsp;» ou relance à faire.</li><li>Rappel RDV chantier la veille.</li><li>Escalade d’un mail urgent vers WhatsApp / Telegram.</li></ul><p>Telegram possible aussi — même logique. Voir le mur <a href="/outils/">30 outils n8n</a>.</p>
-<h2>RGPD et canaux clients</h2>
-<p>On cadre le canal avec toi (compte pro, consentement, ce qui part automatiquement). Données traitées dans un cadre RGPD France / UE selon le parcours. Détail : <a href="/confidentialite/">confidentialité</a>.</p>
+<h2>Process : brancher WhatsApp en 4 étapes</h2>
+<ol><li>On cadre ce qui doit te notifier (devis signé, RDV, urgent) — et ce qui ne doit pas.</li><li>On branche WhatsApp Business / API (ou Telegram) via n8n.</li><li>Règles d’escalade depuis Gmail / Outlook / Sheets.</li><li>Alertes utiles dans la poche ; le reste reste filtré.</li></ol>
+<h2>Pour qui c’est fait</h2>
+<p>Artisans dont les clients écrivent déjà sur WhatsApp, et qui perdent des soirées à scroller les conversations — couvreurs, menuisiers, plombiers, plaquistes, électriciens (Flers / Orne).</p>
+<h2>Limites (honnêtes)</h2>
+<p>WhatsApp n’envoie pas un devis PDF à ta place comme Gmail. C’est le <strong>canal d’alerte / rappel</strong>. Les devis partent souvent par mail : <a href="/outils/gmail-relances-devis/">Gmail</a> ou <a href="/outils/outlook-mails-devis/">Outlook</a>. Cadre RGPD : <a href="/confidentialite/">confidentialité</a>.</p>
+<h2>Ce que tu gagnes</h2>
+<ul><li>Moins de « t’as vu mon message ? » noyés.</li><li>Rappel RDV la veille sans y penser.</li><li>Escalade urgent → poche, sans tout mélanger.</li></ul>
  <div class="article-cta-inline">
  <a href="https://calendly.com/nolan-hermand-automatex-hub/30min" class="btn js-calendly">Démo gratuite 20 min sur ton cas</a>
  <p class="cta-reassure">Sans engagement · 1 mail pour résilier · RGPD France</p>
@@ -77,6 +79,10 @@
  <p>On part sur un usage pro (WhatsApp Business / API selon le cas). On valide le canal pendant la démo de 20 minutes.</p>
  </div>
  <div class="faq-item">
+ <h3>WhatsApp suffit-il pour relancer un devis PDF&nbsp;?</h3>
+ <p>En général non : le PDF part souvent par mail. WhatsApp sert d’alerte / rappel. Relances mail : <a href="/outils/gmail-relances-devis/">Gmail</a>.</p>
+ </div>
+ <div class="faq-item">
  <h3>WhatsApp remplace-t-il Gmail pour les devis&nbsp;?</h3>
  <p>Rarement. WhatsApp sert surtout aux alertes et au lien client rapide ; devis et relances formelles restent souvent sur Gmail ou Outlook.</p>
  </div>
@@ -91,11 +97,13 @@
  <section class="section" id="maillage">
  <div class="paper reveal">
  <h2>Autres usages outils</h2>
- <nav class="metiers-nav" aria-label="Pages outils liées">
+  <nav class="metiers-nav" aria-label="Pages outils liées">
 <a href="/outils/gmail-relances-devis/">Gmail × relances devis</a>
-<a href="/outils/google-sheets-suivi-devis/">Sheets × suivi devis</a>
-<a href="/couvreurs/">Page couvreurs</a>
-<a href="/articles/temps-perdu-devis-artisan/">Temps perdu sur les devis</a>
+<a href="/outils/outlook-mails-devis/">Outlook × mails</a>
+<a href="/outils/google-sheets-suivi-devis/">Sheets × suivi</a>
+<a href="/couvreurs/">Couvreurs</a>
+<a href="/menuisiers/">Menuisiers</a>
+<a href="/plombiers/">Plombiers</a>
  </nav>
  </div>
  </section>
@@ -234,6 +242,6 @@
  ]
 }
 </script>
-<script src="../../script.js?v=20" defer></script>
+<script src="../../script.js?v=23" defer></script>
 </body>
 </html>

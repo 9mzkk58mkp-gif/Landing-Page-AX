@@ -69,6 +69,9 @@ npx lighthouse http://127.0.0.1:8765/ --only-categories=performance --form-facto
 - Agents : `.cursor/agents/ax-audit-*.md` (orchestrateur + 7 domaines)
 - Rubrique : `.cursor/skills/ax-audit-1000/rubric.md`
 - Script : `python3 scripts/ax-score.py`
+## SEO post-deploy
+Après changements d’intentions / maillage : suivre [`SEARCH-CONSOLE-CHECKLIST.md`](SEARCH-CONSOLE-CHECKLIST.md) (resoumettre sitemap, indexation URLs gagnantes, surveillance cannibalisation).
+
 ## Definition of done (changement typique)
 - [ ] Fichiers listés en tête de réponse
 - [ ] Copy conforme (prix, métiers, CTA, pas de faux témoignages)

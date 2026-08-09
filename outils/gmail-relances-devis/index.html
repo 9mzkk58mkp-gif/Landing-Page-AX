@@ -22,7 +22,7 @@
 <meta name="author" content="Nolan Hermand, AutomateX-HUB">
 <meta name="geo.region" content="FR-61">
 <meta name="geo.placename" content="Saint-Georges-des-Groseillers">
-<link rel="stylesheet" href="../../styles.min.css?v=18">
+<link rel="stylesheet" href="../../styles.min.css?v=22">
 <style>html,body{margin:0;background:#c5ced8;color:#1F2428;font-family:system-ui,sans-serif}</style>
 <script>window.addEventListener("load",function(){var l=document.createElement("link");l.rel="stylesheet";l.href="/assets/fonts/fonts.min.css";document.head.appendChild(l);});</script>
 </head>
@@ -41,7 +41,7 @@
  <img src="/assets/icons/n8n/gmail.svg" alt="" width="48" height="48" loading="eager" decoding="async">
  </div>
  <h1 class="hook">Gmail pour envoyer et relancer tes devis d’artisan</h1>
- <p class="geo-answer"><strong>Réponse courte — </strong>AutomateX-HUB branche Gmail (via n8n) pour envoyer les devis, suivre les réponses et relancer tant que ce n’est pas signé. Tes outils restent ; tout est regroupé dans ton application métier. Flers / Orne. À partir de 390&nbsp;€ + 99&nbsp;€/mois.</p>
+ <p class="geo-answer"><strong>Angle outil — </strong>Cette page traite le <strong>branchement de Gmail</strong> (envoi devis, suivi, relances depuis ta boîte). Pour la <em>méthode</em> de relance : <a href="/articles/relance-devis-automatique/">relance devis automatique</a>. Pour le duo <em>Obat + Gmail</em> : <a href="/articles/automatiser-obat-gmail-artisan/">automatiser Obat et Gmail</a>. Flers / Orne. À partir de 390&nbsp;€ + 99&nbsp;€/mois.</p>
  <div class="hero-cta">
  <a href="https://calendly.com/nolan-hermand-automatex-hub/30min" class="btn btn--hero anim-run js-calendly">Démo gratuite 20 min sur ton cas</a>
  <p class="cta-reassure">Sans engagement · 1 mail pour résilier · RGPD France</p>
@@ -54,12 +54,14 @@
  <section class="section">
  <div class="paper reveal">
  <div class="article-prose">
-<h2>À quoi sert Gmail dans le parcours devis&nbsp;?</h2>
-<p>Gmail reste ta boîte. Ce qu’on automatise : mise en forme / envoi du devis, accusés, relances J+3 / J+7, tri des réponses «&nbsp;ok on signe&nbsp;» vs spam pendant que tu es sur le chantier.</p>
-<h2>Ce que tu gagnes concrètement</h2>
-<ul><li>Moins de devis oubliés dans les brouillons.</li><li>Relances qui partent sans y penser à 21h.</li><li>Une vue métier le soir : qui a ouvert, qui a répondu, qui bloque.</li></ul><p>Jusqu’à <strong>8&nbsp;h/semaine</strong> récupérées sur devis, mails et relances — selon ton volume.</p>
-<h2>Gmail seul ou avec Obat&nbsp;?</h2>
-<p>Souvent les deux : Obat pour chiffrer, Gmail pour envoyer et relancer. Détail du duo : <a href="/articles/automatiser-obat-gmail-artisan/">automatiser Obat et Gmail</a>. Tu es plutôt Outlook&nbsp;? Voir <a href="/outils/outlook-mails-devis/">Outlook × mails devis</a>.</p>
+<h2>Process : brancher Gmail en 4 étapes</h2>
+<ol><li>On cadre ton volume de devis et ta boîte (perso / Workspace).</li><li>On connecte Gmail via n8n (droits mails uniquement nécessaires).</li><li>Règles : envoi devis, J+3 / J+7, tags « signé / perdu ».</li><li>Tout remonte dans ton application métier le soir.</li></ol>
+<h2>Pour qui c’est fait</h2>
+<p>Artisans bâtiment qui envoient déjà leurs devis par Gmail et oublient les relances sur chantier — couvreurs, menuisiers, plombiers, plaquistes, électriciens.</p>
+<h2>Limites (honnêtes)</h2>
+<p>Gmail n’est pas un logiciel de chiffrage. Obat (ou équivalent) reste pour le devis. Cette page = <strong>la boîte mail</strong>. Méthode relance : <a href="/articles/relance-devis-automatique/">article relance</a>. Duo Obat : <a href="/articles/automatiser-obat-gmail-artisan/">Obat + Gmail</a>.</p>
+<h2>Ce que tu gagnes</h2>
+<ul><li>Moins de brouillons oubliés.</li><li>Relances sans y penser à 21h.</li><li>Vue métier : ouvert / répondu / bloqué.</li></ul><p>Jusqu’à <strong>8&nbsp;h/semaine</strong> selon volume. Outlook&nbsp;? <a href="/outils/outlook-mails-devis/">Outlook × mails</a>.</p>
  <div class="article-cta-inline">
  <a href="https://calendly.com/nolan-hermand-automatex-hub/30min" class="btn js-calendly">Démo gratuite 20 min sur ton cas</a>
  <p class="cta-reassure">Sans engagement · 1 mail pour résilier · RGPD France</p>
@@ -81,8 +83,8 @@
  <p>À partir de 390 € + 99 €/mois. Sans engagement, résiliable en 1 mail, RGPD France. Appel de 20 minutes avant toute facturation.</p>
  </div>
  <div class="faq-item">
- <h3>Ça marche pour quel métier du bâtiment&nbsp;?</h3>
- <p>Couvreurs, menuisiers, plombiers, plaquistes, électriciens — dès qu’il y a devis et relances par mail.</p>
+ <h3>Gmail remplace-t-il Obat&nbsp;?</h3>
+ <p>Non. Gmail envoie et relance ; Obat (ou autre) chiffre. Voir <a href="/articles/automatiser-obat-gmail-artisan/">Obat + Gmail</a>.</p>
  </div>
  </div>
  </div>
@@ -96,6 +98,8 @@
 <a href="/outils/outlook-mails-devis/">Outlook × mails devis</a>
 <a href="/articles/relance-devis-automatique/">Relance devis automatique</a>
 <a href="/articles/automatiser-obat-gmail-artisan/">Obat + Gmail</a>
+<a href="/couvreurs/">Couvreurs</a>
+<a href="/menuisiers/">Menuisiers</a>
  </nav>
  </div>
  </section>
@@ -234,6 +238,6 @@
  ]
 }
 </script>
-<script src="../../script.js?v=20" defer></script>
+<script src="../../script.js?v=23" defer></script>
 </body>
 </html>

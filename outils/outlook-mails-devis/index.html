@@ -22,7 +22,7 @@
 <meta name="author" content="Nolan Hermand, AutomateX-HUB">
 <meta name="geo.region" content="FR-61">
 <meta name="geo.placename" content="Saint-Georges-des-Groseillers">
-<link rel="stylesheet" href="../../styles.min.css?v=18">
+<link rel="stylesheet" href="../../styles.min.css?v=22">
 <style>html,body{margin:0;background:#c5ced8;color:#1F2428;font-family:system-ui,sans-serif}</style>
 <script>window.addEventListener("load",function(){var l=document.createElement("link");l.rel="stylesheet";l.href="/assets/fonts/fonts.min.css";document.head.appendChild(l);});</script>
 </head>
@@ -54,12 +54,14 @@
  <section class="section">
  <div class="paper reveal">
  <div class="article-prose">
-<h2>Outlook vs Gmail : on change quoi&nbsp;?</h2>
-<p>Rien côté habitudes. On se branche sur <strong>ta</strong> boîte. La logique devis / relances / tri est la même ; le connecteur n8n change, pas ton métier.</p>
-<h2>Ce qu’on automatise souvent</h2>
-<ul><li>Envoi du devis depuis Outlook.</li><li>Relances tant que pas de signature.</li><li>Règles de tri (urgent chantier vs pub).</li><li>Lien avec Sheets ou Obat si tu les utilises.</li></ul>
-<h2>Pour qui&nbsp;?</h2>
+<h2>Process : brancher Outlook en 4 étapes</h2>
+<ol><li>On cadre ton volume de devis et ta boîte Microsoft 365 / Outlook.</li><li>On connecte Outlook via n8n (droits mails nécessaires uniquement).</li><li>Règles : envoi devis, relances J+3 / J+7, tags « signé / perdu ».</li><li>Tout remonte dans ton application métier le soir.</li></ol>
+<h2>Pour qui c’est fait</h2>
 <p>Artisans et TPE bâtiment déjà sur Microsoft 365 / Outlook — couvreurs, menuisiers, plombiers, plaquistes, électriciens. Zone Flers / Orne et alentours.</p>
+<h2>Limites (honnêtes)</h2>
+<p>Outlook n’est pas un logiciel de chiffrage. Obat (ou équivalent) reste pour le devis. Cette page = <strong>la boîte mail Microsoft</strong>. Même logique côté Gmail : <a href="/outils/gmail-relances-devis/">Gmail × relances</a>. Méthode relance : <a href="/articles/relance-devis-automatique/">article relance</a>.</p>
+<h2>Ce que tu gagnes</h2>
+<ul><li>Moins de brouillons oubliés dans Outlook.</li><li>Relances sans y penser à 21h.</li><li>Vue métier : ouvert / répondu / bloqué.</li></ul><p>Jusqu’à <strong>8&nbsp;h/semaine</strong> selon volume. Suivi tableau : <a href="/outils/google-sheets-suivi-devis/">Sheets × suivi</a>.</p>
  <div class="article-cta-inline">
  <a href="https://calendly.com/nolan-hermand-automatex-hub/30min" class="btn js-calendly">Démo gratuite 20 min sur ton cas</a>
  <p class="cta-reassure">Sans engagement · 1 mail pour résilier · RGPD France</p>
@@ -81,6 +83,10 @@
  <p>Celui que tu utilises déjà. On ne migre pas pour le plaisir. Voir aussi Gmail × relances devis.</p>
  </div>
  <div class="faq-item">
+ <h3>Outlook remplace-t-il Obat&nbsp;?</h3>
+ <p>Non. Outlook envoie et relance ; Obat (ou autre) chiffre. Voir <a href="/articles/automatiser-obat-gmail-artisan/">Obat + Gmail</a> (même logique mail).</p>
+ </div>
+ <div class="faq-item">
  <h3>Prix&nbsp;?</h3>
  <p>À partir de 390 € + 99 €/mois. Sans engagement · 1 mail pour résilier · RGPD France.</p>
  </div>
@@ -91,11 +97,13 @@
  <section class="section" id="maillage">
  <div class="paper reveal">
  <h2>Autres usages outils</h2>
- <nav class="metiers-nav" aria-label="Pages outils liées">
+  <nav class="metiers-nav" aria-label="Pages outils liées">
 <a href="/outils/gmail-relances-devis/">Gmail × relances devis</a>
 <a href="/outils/google-sheets-suivi-devis/">Sheets × suivi devis</a>
-<a href="/articles/automatiser-devis-artisan/">Automatiser ses devis</a>
-<a href="/menuisiers/">Page menuisiers</a>
+<a href="/articles/relance-devis-automatique/">Relance devis auto</a>
+<a href="/couvreurs/">Couvreurs</a>
+<a href="/menuisiers/">Menuisiers</a>
+<a href="/plombiers/">Plombiers</a>
  </nav>
  </div>
  </section>
@@ -234,6 +242,6 @@
  ]
 }
 </script>
-<script src="../../script.js?v=20" defer></script>
+<script src="../../script.js?v=23" defer></script>
 </body>
 </html>
