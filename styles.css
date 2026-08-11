@@ -95,7 +95,7 @@ h2 {
   display: none
 }
 
-/* ---------- Navbar pilule flottante (accueil) — grille 8px ---------- */
+/* ---------- Navbar pilule flottante (toutes pages) — grille 8px ---------- */
 .nav-pill {
   --nav-thumb-x: 8px;
   --nav-thumb-w: 88px;
@@ -126,9 +126,13 @@ h2 {
   border-radius: 999px;
   background: var(--ink);
   transform: translateX(var(--nav-thumb-x));
-  transition: transform .38s cubic-bezier(.34, 1.4, .64, 1), width .38s cubic-bezier(.34, 1.4, .64, 1), background .25s ease;
+  transition: transform .38s cubic-bezier(.34, 1.4, .64, 1), width .38s cubic-bezier(.34, 1.4, .64, 1), background .25s ease, opacity .2s ease;
   pointer-events: none;
   z-index: 0;
+  opacity: 1;
+}
+.nav-pill:not([data-active]) .nav-pill__thumb {
+  opacity: 0;
 }
 .nav-pill__link {
   position: relative;
@@ -194,8 +198,8 @@ body:has(.nav-pill) {
     bottom: 8px;
   }
   .nav-pill__link {
-    padding: 8px 16px;
-    font-size: 14px;
+    padding: 8px 12px;
+    font-size: 13px;
   }
   body:has(.nav-pill) {
     padding-top: 80px;
@@ -424,6 +428,40 @@ h1 {
   color: var(--ink)
 }
 
+/* Liens dans le copy : même Manrope / couleur que le texte, pas le bleu navigateur */
+.geo-answer a,
+.tools-note a,
+.metier-depth a,
+.faq-item a,
+.callout a {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(31, 36, 40, 0.28)
+}
+
+.geo-answer a:hover,
+.tools-note a:hover,
+.metier-depth a:hover,
+.faq-item a:hover,
+.callout a:hover {
+  color: var(--orange);
+  text-decoration-color: var(--orange)
+}
+
+.geo-answer a:focus-visible,
+.tools-note a:focus-visible,
+.metier-depth a:focus-visible,
+.faq-item a:focus-visible,
+.callout a:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 2px
+}
+
 .hook {
   margin: 0 0 14px;
   font-size: 28px;
@@ -533,8 +571,9 @@ h1 {
   display: block;
   padding: 6px 8px 10px;
   text-align: center;
-  font-family: ui-sans-serif, system-ui, sans-serif;
-  font-size: 18px;
+  font-family: 'Manrope', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
   line-height: 1.2;
   color: var(--ink)
 }
@@ -855,7 +894,12 @@ h1 {
   margin: 14px 0 0;
   font-size: 14px;
   line-height: 1.5;
-  color: var(--slate)
+  color: var(--slate);
+  font-family: inherit
+}
+
+.tools-note--links {
+  margin-top: 8px
 }
 
 .levier-card h2 {

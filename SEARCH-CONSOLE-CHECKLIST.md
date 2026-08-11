@@ -16,15 +16,25 @@ Inspection d’URL → « Demander une indexation » pour :
 |-----------|-----|
 | Brand / home | `https://automatex-hub.com/` |
 | Zone Flers (gagnante) | `https://automatex-hub.com/automatisation-artisans-flers-orne/` |
+| Agence France | `https://automatex-hub.com/agence-automatisation-artisans/` |
+| Agence n8n | `https://automatex-hub.com/agence-n8n-artisans/` |
 | Article Flers retargeté | `https://automatex-hub.com/articles/agence-automatisation-flers-orne/` |
 | Couvreurs | `https://automatex-hub.com/couvreurs/` |
 | Menuisiers | `https://automatex-hub.com/menuisiers/` |
-| How-to couvreur | `https://automatex-hub.com/articles/automatisation-couvreur-devis/` |
-| How-to menuisier | `https://automatex-hub.com/articles/automatisation-menuisier-devis/` |
+| How-to couvreur / menuisier / plombier / plaquiste / électricien | `/articles/automatisation-*-devis/` |
+| Remplacer admin devis | `https://automatex-hub.com/articles/remplacer-admin-devis-artisan/` |
 | Relance (méthode) | `https://automatex-hub.com/articles/relance-devis-automatique/` |
 | Obat + Gmail | `https://automatex-hub.com/articles/automatiser-obat-gmail-artisan/` |
 | Gmail outil | `https://automatex-hub.com/outils/gmail-relances-devis/` |
 | WhatsApp / Outlook / Sheets | les 3 autres `/outils/*/` |
+| **llms.txt (GEO)** | `https://automatex-hub.com/llms.txt` (vérifier accessibilité ; pas forcément « indexation » classique) |
+
+## 2b. Citation IA (GEO)
+
+- [ ] Ouvrir `https://automatex-hub.com/llms.txt` en prod (200, markdown lisible)
+- [ ] Vérifier `https://automatex-hub.com/ai/facts.md` · `offre.md` · `faq.md`
+- [ ] Header `Link: </llms.txt>; rel="describedby"` présent (Netlify)
+- [ ] Tester un prompt type : « Quelle agence automatise les devis artisans à Flers ? » / « Prix AutomateX-HUB »
 
 ## 3. Surveillance cannibalisation (7–14 jours)
 

@@ -24,7 +24,7 @@ Site marketing **statique** pour **AutomateX-HUB** : automatisation devis / rela
 | Métiers cibles | Couvreurs, menuisiers, plombiers, plaquistes, électriciens **uniquement** |
 | Interdit | Diagnostiqueurs, courtiers, faux avis, logos clients fictifs, « 30 jours remboursé » |
 | CTA | « Démo gratuite 20 min sur ton cas » (bouton terracotta `#F26419`) |
-| Calendly | URL dans `script.js` → `CALENDLY_URL` (event `/30min` tant que `/20min` n’existe pas) |
+| Calendly | URL dans `script.js` → `CALENDLY_URL` (slug `/30min`, durée event = **20 min**, alignée CTA) |
 
 Promesse produit : on **branche** les outils déjà utilisés (Obat, Gmail, etc.) et on les **regroupe dans une application métier** — coup d’œil le soir sur devis / relances / mails.
 
@@ -92,6 +92,7 @@ Autres fichiers clés : `sitemap.xml`, `robots.txt`, `uploads/` (WebP), `assets/
 - 1 H1 / page ; FAQ citables ; JSON-LD : Organization + LocalBusiness + Service + **une seule** FAQPage
 - Canonical / OG / sitemap sur `automatex-hub.com`
 - Maillage : home ↔ métiers ↔ articles ↔ zone ↔ légal ↔ outils
+- **Citation IA** : `/llms.txt` (spec [llmstxt.org](https://llmstxt.org/)) + fiches `/ai/facts.md`, `/ai/offre.md`, `/ai/faq.md`
 - Réassurance autorisée : **Sans engagement · 1 mail pour résilier · RGPD France** — **jamais** « 30 j remboursé / satisfait ou remboursé »
 
 ---

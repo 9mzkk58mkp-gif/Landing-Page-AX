@@ -29,7 +29,7 @@ Tu édites le site marketing AutomateX-HUB. Tu ne reconstruis pas le site from s
 - Métiers : **bâtiment only** — couvreurs, menuisiers, plombiers, plaquistes, électriciens
 - **Interdit** : diagnostiqueurs, courtiers, témoignages inventés, logos clients fictifs
 - CTA unique : **« Démo gratuite 20 min sur ton cas »** (terracotta `#F26419`)
-- Calendly : URL dans `script.js` → `CALENDLY_URL` (event actuel `/30min` tant que `/20min` n’existe pas)
+- Calendly : URL dans `script.js` → `CALENDLY_URL` (slug `/30min`, durée event = 20 min alignée CTA)
 - GA : `G-GZG5DWRGKF` derrière bandeau consentement uniquement
 
 ## Design
@@ -49,6 +49,7 @@ Tu édites le site marketing AutomateX-HUB. Tu ne reconstruis pas le site from s
 - 1 H1 / page ; FAQ citables ; JSON-LD Organization + LocalBusiness + Service + **une** FAQPage
 - Canonical / OG / sitemap sur `automatex-hub.com`
 - Maillage home ↔ métiers ↔ articles ↔ zone Flers/Orne ↔ légal
+- **llms.txt** à la racine (`/llms.txt`, spec https://llmstxt.org/) + fiches `/ai/*.md` pour citation IA ; header Netlify `Link: rel=describedby`
 
 ## Pages légales
 - `/mentions-legales/` · `/confidentialite/`

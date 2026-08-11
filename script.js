@@ -1,6 +1,6 @@
 // AutomateX-HUB — landing page
 // Agents : lire AGENTS.md + .cursor/rules/ avant modification.
-// Durée promise : 20 min. Event Calendly : /30min tant que /20min n’existe pas (404 au 2026-08-07). Créer /20min puis changer CALENDLY_URL.
+// Calendly : slug URL /30min — durée de l’event = 20 min (alignée sur le CTA). Ne pas créer /20min sauf si le slug change.
 const CALENDLY_URL = 'https://calendly.com/nolan-hermand-automatex-hub/30min';
 const CALENDLY_CSS = 'https://assets.calendly.com/assets/external/widget.css';
 const CALENDLY_JS = 'https://assets.calendly.com/assets/external/widget.js';
@@ -209,8 +209,9 @@ const hideForReplay = (el, dir) => {
 
   show(nav);
   requestAnimationFrame(() => {
-    const current = links.find((l) => l.classList.contains('is-active')) || links[0];
-    placeThumb(current);
+    const current = links.find((l) => l.classList.contains('is-active'));
+    if (current) placeThumb(current);
+    else nav.removeAttribute('data-active');
   });
 
   if (!reducedMotion) {
@@ -227,13 +228,17 @@ const hideForReplay = (el, dir) => {
   links.forEach((link) => {
     link.addEventListener('click', () => {
       const key = link.dataset.nav || 'accueil';
-      setActive(key);
+      const href = link.getAttribute('href') || '';
+      // Same-page hash only: update pill. Cross-page (/#…) keeps current page state.
+      if (href.startsWith('#') || href === '/' || href === '') {
+        setActive(key);
+      }
     });
   });
 
   window.addEventListener('resize', () => {
-    const current = links.find((l) => l.classList.contains('is-active')) || links[0];
-    placeThumb(current);
+    const current = links.find((l) => l.classList.contains('is-active'));
+    if (current) placeThumb(current);
   });
 
   const spyMap = [

@@ -8,6 +8,8 @@ alwaysApply: false
 
 ## Structure type
 - `<head>` : meta SEO, canonical `.com`, OG, `styles.min.css`, boot fonts différé, JSON-LD en fin de body avant `script.js`
+- Navbar : `<nav class="nav-pill">` après `<body>` — labels : Accueil · Branche · Démarche · Nolan · FAQ (ancres home `#` ; autres pages `/` + `/#…`)
+- GEO : `rel="describedby"` → `/llms.txt` ; pages clés : `rel="alternate" type="text/markdown"` vers `index.md`
 - CTA : classe `js-calendly` + libellé « Démo gratuite 20 min sur ton cas »
 - Sous CTA : `.cta-reassure` (sans engagement · 1 mail pour résilier) — jamais « 30 j remboursé »
 - Footer : NAP + liens métiers/articles/légal + `Cookies` injecté par JS

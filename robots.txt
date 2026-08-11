@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# GEO / agents : aperçu LLM-friendly (spécification https://llmstxt.org/)
+# https://automatex-hub.com/llms.txt
+# Fiches markdown : /ai/facts.md · /ai/offre.md · /ai/faq.md
+
 Sitemap: https://automatex-hub.com/sitemap.xml

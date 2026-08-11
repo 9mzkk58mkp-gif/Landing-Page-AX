@@ -26,7 +26,9 @@ Site marketing statique pour **AutomateX-HUB** : automatisation devis / relances
 | `index.html` | Landing conversion (sticky CTA, lightbox OS) |
 | `couvreurs/` `menuisiers/` `plombiers/` `plaquistes/` `electriciens/` | Pages métier SEO/GEO |
 | `outils/` | Mur 30 nœuds n8n + 4 pages usage (Gmail, WhatsApp, Outlook, Sheets) |
-| `automatisation-artisans-flers-orne/` | Page zone |
+| `automatisation-artisans-flers-orne/` | Page zone Flers / Orne |
+| `agence-automatisation-artisans/` | Hub agence France (intentions nationales) |
+| `agence-n8n-artisans/` | Page service agence n8n artisans |
 | `articles/` | Hub + articles intention |
 | `mentions-legales/` `confidentialite/` | Légal / RGPD |
 | `styles.css` | **Source CSS** (éditer ici) |
@@ -34,7 +36,8 @@ Site marketing statique pour **AutomateX-HUB** : automatisation devis / relances
 | `script.js` | Calendly popup, cookies/GA, sticky, lightbox, defer images |
 | `assets/fonts/` | Manrope woff2 + `fonts.min.css` |
 | `uploads/` | Images WebP (dashboard, nolan) |
-| `sitemap.xml` `robots.txt` | Crawl |
+| `sitemap.xml` `robots.txt` `llms.txt` | Crawl + GEO agents |
+| `ai/facts.md` `ai/offre.md` `ai/faq.md` | Fiches markdown citables (liées depuis llms.txt) |
 | `netlify.toml` | Hosting + cache headers |
 | `scripts/minify-css.py` | Build CSS |
 | `scripts/serve.py` | Preview local **avec gzip** (mesure perf fidèle) |
