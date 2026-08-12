@@ -30,7 +30,7 @@ Tu édites le site marketing AutomateX-HUB. Tu ne reconstruis pas le site from s
 - **Interdit** : diagnostiqueurs, courtiers, témoignages inventés, logos clients fictifs
 - CTA unique : **« Démo gratuite 20 min sur ton cas »** (terracotta `#F26419`)
 - Calendly : URL dans `script.js` → `CALENDLY_URL` (slug `/30min`, durée event = 20 min alignée CTA)
-- GA : `G-GZG5DWRGKF` derrière bandeau consentement uniquement
+- GTM : `GTM-WTXKCMWM` derrière bandeau consentement uniquement (GA4 via le conteneur)
 
 ## Design
 - Look « dossier papier / plan de bâtiment » — préserver l’identité

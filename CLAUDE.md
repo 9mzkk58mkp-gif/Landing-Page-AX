@@ -35,7 +35,7 @@ Promesse produit : on **branche** les outils déjà utilisés (Obat, Gmail, etc.
 - HTML statique + `styles.css` (source) → `styles.min.css` (servi) + `script.js`
 - Pas de Next.js, React, Vue, bundler, SSR, SPA — **jamais**, même « pour la maintenabilité »
 - Fonts self-host Manrope (`/assets/fonts/`) — pas de Google Fonts CDN
-- GA4 `G-GZG5DWRGKF` derrière consentement `localStorage` clé `ax_cookie_consent`
+- GTM `GTM-WTXKCMWM` derrière consentement `localStorage` clé `ax_cookie_consent` (GA4 via le conteneur)
 - Deploy : `netlify.toml` (publish `.`, headers cache fonts/CSS/JS)
 
 ### Workflow CSS obligatoire

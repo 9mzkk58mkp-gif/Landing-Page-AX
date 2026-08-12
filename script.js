@@ -662,9 +662,9 @@ if (slider && rateVal && monthlyVal) {
  io.observe(heroCta);
 })();
 
-// ---------- Cookies + Google Analytics (consentement RGPD) ----------
+// ---------- Cookies + Google Tag Manager (consentement RGPD) ----------
 (function initCookieConsent() {
- const GA_ID = 'G-GZG5DWRGKF';
+ const GTM_ID = 'GTM-WTXKCMWM';
  const CONSENT_KEY = 'ax_cookie_consent';
  const CONSENT_GRANTED = 'granted';
  const CONSENT_DENIED = 'denied';
@@ -685,19 +685,18 @@ if (slider && rateVal && monthlyVal) {
  }
  }
 
- function loadGoogleAnalytics() {
- if (window.__axGaLoaded) return;
- window.__axGaLoaded = true;
+ function loadGoogleTagManager() {
+ if (window.__axGtmLoaded) return;
+ window.__axGtmLoaded = true;
  window.dataLayer = window.dataLayer || [];
- function gtag() {
- window.dataLayer.push(arguments);
- }
- window.gtag = gtag;
- gtag('js', new Date());
- gtag('config', GA_ID, { anonymize_ip: true });
+ window.dataLayer.push({
+ 'gtm.start': new Date().getTime(),
+ event: 'gtm.js',
+ });
  const script = document.createElement('script');
  script.async = true;
- script.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA_ID);
+ script.src =
+ 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(GTM_ID);
  document.head.appendChild(script);
  }
 
@@ -719,7 +718,7 @@ if (slider && rateVal && monthlyVal) {
  '<div class="cookie-banner__inner">' +
  '<div class="cookie-banner__copy">' +
  '<p id="cookie-banner-title" class="cookie-banner__title">Cookies &amp; mesure d’audience</p>' +
- '<p class="cookie-banner__text">Ce site utilise Google Analytics uniquement si vous acceptez. ' +
+ '<p class="cookie-banner__text">Ce site utilise Google Tag Manager (et les balises qu’il déclenche, dont Google Analytics) uniquement si vous acceptez. ' +
  'Cookies strictement nécessaires&nbsp;: toujours actifs. ' +
  '<a href="/confidentialite/">Politique de confidentialité</a>.</p>' +
  '</div>' +
@@ -734,7 +733,7 @@ if (slider && rateVal && monthlyVal) {
  banner.querySelector('.js-cookie-accept').addEventListener('click', () => {
  setConsent(CONSENT_GRANTED);
  hideBanner();
- loadGoogleAnalytics();
+ loadGoogleTagManager();
  });
 
  banner.querySelector('.js-cookie-refuse').addEventListener('click', () => {
@@ -762,14 +761,14 @@ if (slider && rateVal && monthlyVal) {
  const consent = getConsent();
  const boot = () => {
  if (consent === CONSENT_GRANTED) {
- loadGoogleAnalytics();
+ loadGoogleTagManager();
  } else if (consent !== CONSENT_DENIED) {
  showBanner();
  }
  };
 
  if (consent === CONSENT_GRANTED) {
- // Analytics after first paint
+ // Tags after first paint
  if ('requestIdleCallback' in window) {
  requestIdleCallback(boot, { timeout: 2500 });
  } else {

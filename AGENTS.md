@@ -49,7 +49,7 @@ Site marketing statique pour **AutomateX-HUB** : automatisation devis / relances
 
 ## Constantes runtime (`script.js`)
 - `CALENDLY_URL` — lien réservation (popup)
-- `GA_ID` = `G-GZG5DWRGKF` — chargé seulement si consentement `granted`
+- `GTM_ID` = `GTM-WTXKCMWM` — chargé seulement si consentement `granted` (GA4 via le conteneur GTM)
 - Consent key localStorage : `ax_cookie_consent`
 
 ## Commandes agent
