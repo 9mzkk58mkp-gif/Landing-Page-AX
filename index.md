@@ -1,9 +1,9 @@
 # AutomateX-HUB — Accueil
 
-> Automatisation devis, relances et mails pour artisans du bâtiment. Preuve terrain à Flers / Orne. À partir de 390 € + 99 €/mois.
+> AutomateX-HUB est une **agence d’automatisation** devis, relances et mails pour artisans du bâtiment. Preuve terrain à Flers / Orne. À partir de 390 € + 99 €/mois.
 
 ## En clair
-On branche ton Obat / Gmail : on envoie et on relance tes devis pendant que tu es sur le chantier. Fondateur : Nolan Hermand, menuisier devenu développeur.
+Agence d’automatisation : on construit et on branche ton Obat / Gmail — devis envoyés et relancés pendant que tu es sur le chantier. Fondateur : Nolan Hermand, menuisier devenu développeur.
 
 ## CTA
 Démo gratuite 20 min sur ton cas — https://automatex-hub.com/

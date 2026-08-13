@@ -415,22 +415,28 @@ if (slider && rateVal && monthlyVal) {
  : 'https://calendly.com/nolan-hermand-automatex-hub/30min';
 
  const CHIPS = [
+ 'Vous êtes une agence ?',
  'Combien ça coûte ?',
  'Obat suffit-il ?',
- 'Mon outil n’est pas listé',
  'Réserver une démo',
  ];
 
  const KB = [
+ {
+ keys: ['agence', 'saas', 'self-serve', 'self serve', 'vendeur de logiciel'],
+ html:
+ 'Oui — <strong>agence d’automatisation</strong> pour artisans du bâtiment. On construit et on branche devis / relances / mails sur tes outils. Pas un SaaS à configurer seul.',
+ cta: true,
+ },
  {
  keys: ['prix', 'coute', 'coûte', 'tarif', 'combien', '390', '99', 'cout'],
  html:
  'À partir de <strong>390&nbsp;€ + 99&nbsp;€/mois</strong>. Sans engagement · RGPD France. On cadre ça en 20&nbsp;min avant toute facturation.',
  },
  {
- keys: ['obat', 'relance', 'logiciel'],
+ keys: ['obat', 'relance'],
  html:
- 'Non : Obat sert au chiffrage, il ne relance pas tout seul. AutomateX-HUB se branche sur Obat et Gmail pour envoi, suivi et relances. Jusqu’à 8&nbsp;h/semaine.',
+ 'Non : Obat sert au chiffrage, il ne relance pas tout seul. L’agence AutomateX-HUB se branche sur Obat et Gmail pour envoi, suivi et relances. Jusqu’à 8&nbsp;h/semaine.',
  },
  {
  keys: ['heure', 'temps', 'soirée', 'semaine', 'gagne'],
@@ -444,7 +450,7 @@ if (slider && rateVal && monthlyVal) {
  },
  {
  keys: ['demo', 'démo', 'rdv', 'rendez', 'appel', 'calendly', 'réserver', 'reserver', 'parler'],
- html: 'On se parle 20&nbsp;min sur ton cas — sans engagement.',
+ html: 'Parle à l’agence : 20&nbsp;min sur ton cas — sans engagement.',
  cta: true,
  },
     {
@@ -460,17 +466,17 @@ if (slider && rateVal && monthlyVal) {
  {
  keys: ['qui', 'nolan', 'menuisier', 'flers', 'orne', 'où', 'ou es'],
  html:
- 'Moi c’est Nolan Hermand, menuisier devenu développeur, basé à Saint-Georges-des-Groseillers près de Flers (Orne). J’automatise devis / relances / mails pour artisans du bâtiment.',
+ 'Moi c’est Nolan Hermand, menuisier devenu développeur. J’ai fondé AutomateX-HUB, <strong>agence d’automatisation</strong> à Saint-Georges-des-Groseillers près de Flers (Orne), pour artisans du bâtiment.',
  },
  {
- keys: ['gmail', 'outlook', 'whatsapp', 'telegram', 'branche', 'appli', 'application', 'écran', 'ecran', 'soir', 'coup'],
+ keys: ['gmail', 'outlook', 'whatsapp', 'telegram', 'branche', 'appli', 'application', 'écran', 'ecran', 'soir', 'coup', 'logiciel'],
  html:
- 'Tes outils restent. On les branche et on les regroupe dans <strong>ton application métier</strong> : le soir, un coup d’œil et tu vois devis, relances, mails — sans ouvrir dix onglets.',
+ 'Tes outils restent. L’agence les branche et les regroupe dans <strong>ton application métier</strong> : le soir, un coup d’œil et tu vois devis, relances, mails — sans ouvrir dix onglets.',
  },
  ];
 
  const WELCOME =
- 'Salut — je réponds aux questions du site (prix, outils, délais). Pour ton cas précis, mieux vaut une démo de 20&nbsp;min.';
+ 'Salut — AutomateX-HUB est une <strong>agence d’automatisation</strong> pour artisans. Questions prix, outils, démarche — ou réserve 20&nbsp;min sur ton cas.';
  const FALLBACK =
  'Je n’ai pas cette réponse ici. Regarde la <a href="#faq">FAQ</a>, ou réserve 20&nbsp;min : on regarde ton cas ensemble.';
 

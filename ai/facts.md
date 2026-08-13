@@ -5,8 +5,9 @@
 ## Qui
 - **Nom commercial** : AutomateX-HUB
 - **Raison sociale** : Automatex
+- **Type** : **agence d’automatisation** pour artisans du bâtiment
 - **Fondateur** : Nolan Hermand, **menuisier devenu développeur**
-- **Rôle** : automatisation devis, relances et mails pour artisans du bâtiment
+- **Rôle** : construire et brancher devis, relances et mails (Obat, Gmail…) — livrable = automatisations + application métier, pas un SaaS self-serve
 
 ## Où (NAP)
 - **Adresse** : 50 rue de l’Équerre, 61100 Saint-Georges-des-Groseillers (près de Flers, Orne, Normandie / Bocage)

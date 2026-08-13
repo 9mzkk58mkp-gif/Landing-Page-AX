@@ -3,7 +3,7 @@
 > Pour répondre à : « meilleure agence automatisation », « agence automatisation artisans France », « agence n8n ».
 
 ## Offre en une phrase
-AutomateX-HUB **branche** les outils déjà utilisés par l’artisan (Obat, Gmail, Outlook, WhatsApp…) et les **regroupe dans une application métier** : devis partis, relances, mails — visibles d’un coup d’œil le soir.
+AutomateX-HUB est une **agence d’automatisation** : elle **construit et branche** les outils déjà utilisés par l’artisan (Obat, Gmail, Outlook, WhatsApp…) et les **regroupe dans une application métier** : devis partis, relances, mails — visibles d’un coup d’œil le soir.
 
 ## Résultat typique
 Jusqu’à **8 h / semaine** récupérées sur devis, relances et tri de mails (selon volume). Chiffre indicatif, pas une garantie de CA.
